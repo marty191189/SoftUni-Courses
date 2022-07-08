@@ -64,7 +64,7 @@ for key, value in music_dict.items():
     print(f"{key} -> Composer: {value[0]}, Key: {value[1]}")
 
 
-# второ решение Инес
+# второ решение
 #
 # class Piece:
 #     def __init__(self, name, composer, key):
