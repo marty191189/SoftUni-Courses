@@ -1,0 +1,17 @@
+class Person:
+
+    def __init__(self, name):
+        self.name = name
+
+    @staticmethod
+    def is_adult(age):
+        return age >= 18
+
+
+# False
+print(Person.is_adult(3))
+
+girl = Person("Lili")
+
+# True
+print(girl.is_adult(25))
