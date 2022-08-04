@@ -1,0 +1,2 @@
+Function 'loop' was called with (1, 10000000). Elapsed time: 1.3492169380187988
+Function 'loop' was called with (). Elapsed time: 0.9132637977600098
