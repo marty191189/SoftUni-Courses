@@ -1,0 +1,19 @@
+section {  
+    background: #E6E5E5;
+    display: inline-block;
+    font-family: 'Helvetica',
+    sans-serif;
+}
+
+section h3{
+    text-align: center;
+}
+
+h3 {
+    color: #234465;
+    text-align: center;
+}
+
+li {
+    text-decoration: underline;
+}
