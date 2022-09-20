@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+nav{
+    background: #D3D3D3;
+    padding: 0px;
+}
+
+nav li {
+    padding: 0 10px;
+    display: inline-block;
+}
+
+nav li a {
+    color: #519C02;
+    text-decoration: none;
+}
+
+nav ul {
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}
+
+nav button {
+    margin-top: 0px;
+    padding: 10px 15px;
+    font-size: 20px;
+    color: #519C02;
+    background: #D3D3D3;
+    border: none;
+}
+  
+nav button:hover {
+    background: #009900;
+    color: #D3D3D3;
+    cursor: pointer;
+    border-radius: 4px;
+}  
