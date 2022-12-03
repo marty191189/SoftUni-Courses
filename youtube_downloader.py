@@ -1,5 +1,3 @@
-# A YouTube downloader made by me
-
 from pytube import YouTube
 
 
