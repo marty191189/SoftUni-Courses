@@ -2,6 +2,7 @@ from custom_list import CustomList
 
 from unittest import main, TestCase
 
+CUSTOM_INDEX_ERROR_MESSAGE = "Invalid index."
 
 class TestCustomList(TestCase):
 
@@ -20,7 +21,7 @@ class TestCustomList(TestCase):
 
         with self.assertRaises(IndexError) as error:
             custom_list.remove(0)
-        self.assertEqual("Invalid index.", str(error.exception))
+        self.assertEqual(CUSTOM_INDEX_ERROR_MESSAGE, str(error.exception))
 
     def test_pass_invalid_integer_index_to_remove_raises(self):
 
@@ -49,9 +50,16 @@ class TestCustomList(TestCase):
 
         returned_element = custom_list.get(0)
         self.assertEqual(5, returned_element)
+        self.assertEqual([5], custom_list._CustomList__values)
 
     def test_get_invalid_index_raises(self):
-        pass
+        custom_list = CustomList()
+        custom_list.append(5)
+        self.assertEqual([5], custom_list._CustomList__values)
+
+        with self.assertRaises(IndexError) as error:
+            returned_element = custom_list.get(-2)
+        self.assertEqual(CUSTOM_INDEX_ERROR_MESSAGE, str(error.exception))
 
     def test_extend_appends_new_values(self):
         pass

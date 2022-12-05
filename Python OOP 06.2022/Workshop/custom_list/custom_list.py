@@ -19,4 +19,9 @@ class CustomList:
             raise ValueError("Index is not a valid integer. Please pass a integer number.")
 
     def get(self, index):
-        pass
+
+        try:
+            return self.__values[index]
+
+        except IndexError:
+            raise IndexError("Invalid index.")
