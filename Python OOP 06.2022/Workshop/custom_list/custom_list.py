@@ -25,3 +25,11 @@ class CustomList:
 
         except IndexError:
             raise IndexError("Invalid index.")
+
+    def extend(self, values):
+
+        try:
+            self.__values.extend(values)
+
+        except TypeError:
+            raise ValueError("Extend method only works with iterable objects.")
