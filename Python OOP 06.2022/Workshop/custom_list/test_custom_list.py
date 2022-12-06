@@ -61,12 +61,26 @@ class TestCustomList(TestCase):
             returned_element = custom_list.get(-2)
         self.assertEqual(CUSTOM_INDEX_ERROR_MESSAGE, str(error.exception))
 
+        with self.assertRaises(IndexError) as error:
+            returned_element = custom_list.get(1)
+        self.assertEqual(CUSTOM_INDEX_ERROR_MESSAGE, str(error.exception))
+
     def test_extend_appends_new_values(self):
-        pass
+        custom_list = CustomList()
+        custom_list.append(5)
+        self.assertEqual([5], custom_list._CustomList__values)
+
+        custom_list.extend([2, 3, 4])
+        self.assertEqual([5, 2, 3, 4], custom_list._CustomList__values)
 
     def test_extend_with_non_iterable_raises(self):
-        pass
+        custom_list = CustomList()
+        custom_list.append(5)
+        self.assertEqual([5], custom_list._CustomList__values)
 
+        with self.assertRaises(ValueError) as error:
+            custom_list.extend(15)
+        self.assertEqual("Extend method only works with iterable objects.", str(error.exception))
 
 if __name__ == "__main__":
     main()
