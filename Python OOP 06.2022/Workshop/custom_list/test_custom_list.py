@@ -1,6 +1,5 @@
-from custom_list import CustomList
-
 from unittest import main, TestCase
+from custom_list import CustomList
 
 CUSTOM_INDEX_ERROR_MESSAGE = "Invalid index."
 
@@ -58,11 +57,11 @@ class TestCustomList(TestCase):
         self.assertEqual([5], custom_list._CustomList__values)
 
         with self.assertRaises(IndexError) as error:
-            returned_element = custom_list.get(-2)
+            custom_list.get(-2)
         self.assertEqual(CUSTOM_INDEX_ERROR_MESSAGE, str(error.exception))
 
         with self.assertRaises(IndexError) as error:
-            returned_element = custom_list.get(1)
+            custom_list.get(1)
         self.assertEqual(CUSTOM_INDEX_ERROR_MESSAGE, str(error.exception))
 
     def test_extend_appends_new_values(self):
