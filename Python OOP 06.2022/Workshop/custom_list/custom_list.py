@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 class CustomList:
 
     def __init__(self):
@@ -30,6 +32,7 @@ class CustomList:
 
         try:
             self.__values.extend(values)
+            return deepcopy(self.__values)
 
         except TypeError:
             raise ValueError("Extend method only works with iterable objects.")
