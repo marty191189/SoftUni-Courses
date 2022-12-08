@@ -81,5 +81,17 @@ class TestCustomList(TestCase):
             custom_list.extend(15)
         self.assertEqual("Extend method only works with iterable objects.", str(error.exception))
 
+    def test_extend_returns_new_list(self):
+        custom_list = CustomList()
+        custom_list.append(5)
+        self.assertEqual([5], custom_list._CustomList__values)
+
+        result_list = custom_list.extend([2, 3, 4])
+        self.assertEqual([5, 2, 3, 4], custom_list._CustomList__values)
+        self.assertEqual([5, 2, 3, 4], result_list)
+
+        self.assertNotEqual(id(result_list), id(custom_list._CustomList__values))
+
+
 if __name__ == "__main__":
     main()
