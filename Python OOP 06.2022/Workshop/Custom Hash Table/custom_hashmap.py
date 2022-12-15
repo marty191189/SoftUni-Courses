@@ -6,6 +6,11 @@ class HashTable:
         self.__values = [None] * self.max_capacity
 
     def __setitem__(self, key, value):
+        if key in self.__keys:
+            index = self.__keys.index(key)
+            self.__values[index] = value
+            return
+        
         if self.max_capacity == self.size():
             self.__resize()
 
@@ -40,6 +45,7 @@ table["age"] = 25
 table["is_pet_owner"] = True
 table["weight"] = 100
 table["some"] = "Test"
+table["name"] = "Ines"
 
 print(table)
 print(table.get("name"))
