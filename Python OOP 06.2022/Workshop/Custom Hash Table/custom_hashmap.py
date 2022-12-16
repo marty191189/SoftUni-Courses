@@ -10,7 +10,7 @@ class HashTable:
             index = self.__keys.index(key)
             self.__values[index] = value
             return
-        
+
         if self.max_capacity == self.size():
             self.__resize()
 
@@ -37,6 +37,20 @@ class HashTable:
         self.__keys = self.__keys + [None] * self.max_capacity
         self.__values = self.__values + [None] * self.max_capacity
         self.max_capacity *= 2
+
+    def __str__(self):
+        keys_values = [f"{self.__keys[index]}: {self.__values[index]}"
+                       for index in range(len(self.__keys))
+                       if self.__keys[index] is not None]
+        return "{" + ", ".join(keys_values) + "}"
+
+    def get(self, key, default=None):
+        try:
+            index = self.__keys.index(key)
+            return self.__values[index]
+        except ValueError:
+            return default
+
 
 table = HashTable()
 
