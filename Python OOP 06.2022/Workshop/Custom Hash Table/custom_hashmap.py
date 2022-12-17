@@ -5,6 +5,13 @@ class HashTable:
         self.__keys = [None] * self.max_capacity
         self.__values = [None] * self.max_capacity
 
+    def __getitem__(self, key):
+        try:
+            index = self.__keys.index(key)
+            return self.__values[index]
+        except ValueError:
+            raise KeyError(key)
+
     def __setitem__(self, key, value):
         if key in self.__keys:
             index = self.__keys.index(key)
@@ -33,6 +40,9 @@ class HashTable:
     def size(self):
         return len([el for el in self.__keys if el is not None])
 
+    def add(self, key, value):
+        self[key] = value
+
     def __resize(self):
         self.__keys = self.__keys + [None] * self.max_capacity
         self.__values = self.__values + [None] * self.max_capacity
@@ -51,6 +61,9 @@ class HashTable:
         except ValueError:
             return default
 
+    def __len__(self):
+        return self.max_capacity
+
 
 table = HashTable()
 
@@ -61,7 +74,14 @@ table["weight"] = 100
 table["some"] = "Test"
 table["name"] = "Ines"
 
+table.add("new key", "new value")
+
 print(table)
 print(table.get("name"))
+print(table.get("asd"))
 print(table["age"])
+
+# Invalid key raises
+# print(table["asd"])
+
 print(len(table))
