@@ -99,8 +99,8 @@ class TestHashTable(TestCase):
     def test_add_adds_pair(self):
         table = HashTable()
         self.assertEqual([None, None, None, None], table._HashTable__keys)
-        self.assertEqual([None, None, None, None], table._HashTable__values)
-        self.assertEqual(4, table.max_capacity)
+        table.add("age", 12)
+        self.assertEqual([None, "age", None, None], table._HashTable__keys)
 
 
 if __name__ == "__main__":
