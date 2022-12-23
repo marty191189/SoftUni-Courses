@@ -102,6 +102,51 @@ class TestHashTable(TestCase):
         table.add("age", 12)
         self.assertEqual([None, "age", None, None], table._HashTable__keys)
 
+    def test_str_dunder(self):
+        table = HashTable()
+        table["name"] = "Peter"
+        table["age"] = 1
+
+        actual_result = table.__str__()
+        expected_result = "{name: Peter, age: 1}"
+
+        self.assertEqual(expected_result, actual_result)
+
+    def test_get_non_existing_key_returns_none(self):
+        table = HashTable()
+        self.assertEqual([None, None, None, None], table._HashTable__keys)
+
+        result = table.get("test key")
+
+        self.assertEqual(None, result)
+
+    def test_get_with_default_value(self):
+        table = HashTable()
+        self.assertEqual([None, None, None, None], table._HashTable__keys)
+
+        result = table.get("test key", "default value")
+
+        self.assertEqual("default value", result)
+
+    def test_get_existing_key_returns_value(self):
+        table = HashTable()
+        table["name"] = "Peter"
+
+        result = table.get("name")
+
+        self.assertEqual("Peter", result)
+
+    def test_len_returns_max_capacity(self):
+        table = HashTable()
+        self.assertEqual(4, table.max_capacity)
+
+        table["name"] = "Peter"
+
+        self.assertEqual(4, table.max_capacity)
+
+        result = len(table)
+
+        self.assertEqual(4, result)
 
 if __name__ == "__main__":
     main()
